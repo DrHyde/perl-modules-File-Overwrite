@@ -1,0 +1,7 @@
+Changes
+lib/File/Overwrite.pm
+Makefile.PL
+MANIFEST
+README
+t/00_tests.t
+META.yml                                 Module meta-data (added by MakeMaker)
