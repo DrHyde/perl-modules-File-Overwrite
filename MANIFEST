@@ -4,3 +4,5 @@ Makefile.PL
 MANIFEST
 README
 t/00_tests.t
+ARTISTIC.txt
+GPL2.txt

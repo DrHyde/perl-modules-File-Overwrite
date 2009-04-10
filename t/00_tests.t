@@ -30,6 +30,7 @@ open(FOO, 't/foo');
 my $foo = <FOO>;
 print 'not ' if($foo =~ /[^X]/);
 print 'ok '.(++$test)." and was overwritten\n";
+close(FOO);
 
 open(FILE, '>t/foo') || die("Yow! can't write temp file for testing\n");
 print FILE '123456789';

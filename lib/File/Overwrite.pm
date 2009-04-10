@@ -9,7 +9,7 @@ require Exporter;
 
 @ISA = qw(Exporter);
 @EXPORT_OK = qw(overwrite overwrite_and_unlink); 
-$VERSION = '1.0';
+$VERSION = '1.1';
 
 =head1 NAME
 
@@ -101,6 +101,8 @@ sub _unlink {
     die("Couldn't unlink $file") unless(unlink($file) == 1);
 }
 
+=back
+
 =head1 BUGS
 
 None known.  Please report any that you find using L<http://rt.cpan.org/>.
@@ -109,26 +111,35 @@ You should be aware, however, that the tests are only rudimentary.  There
 is no portable way of determining whether a file's data really is overwritten
 so I don't try very hard.
 
+On Win32 you can't delete files that are open.  This is a bug in the
+operating system, not in this module.
+
 =head1 FEEDBACK
 
 I like to know who's using my code.  All comments, including constructive
 criticism, are welcome.  Please email me.
 
-=head1 AUTHOR
-
-David Cantrell E<lt>F<david@cantrell.org.uk>E<gt>
-
-This module was written in response to a post by 'fluffyvoidwarrior' on perlmonks.
+=head1 SEE ALSO
 
 L<http://www.perlmonks.com/?node_id=525657>
 
-=head1 COPYRIGHT
+=head1 AUTHOR, COPYRIGHT and LICENCE
 
-Copyright 2006 David Cantrell
+Copyright 2008 David Cantrell E<lt>david@cantrell.org.ukE<gt>
 
-This module is free-as-in-speech software, and may be used, distributed,
-and modified under the same terms as Perl itself.
+This module was written in response to a post by 'fluffyvoidwarrior'
+on perlmonks.
+
+This software is free-as-in-speech software, and may be used,
+distributed, and modified under the terms of either the GNU
+General Public Licence version 2 or the Artistic Licence. It's
+up to you which one you use. The full text of the licences can
+be found in the files GPL2.txt and ARTISTIC.txt, respectively.
+
+=head1 CONSPIRACY
+
+This module is also free-as-in-mason software.
 
 =cut
 
-'false';
+1;
