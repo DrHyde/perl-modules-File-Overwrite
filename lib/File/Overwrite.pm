@@ -9,7 +9,7 @@ require Exporter;
 
 @ISA = qw(Exporter);
 @EXPORT_OK = qw(overwrite overwrite_and_unlink); 
-$VERSION = '1.1';
+$VERSION = '1.2';
 
 =head1 NAME
 
@@ -90,10 +90,12 @@ sub _overwrite {
     my $with = $params{with};
     my $bytes = -s $file;
 
-    open(FILE, '+<', $file) || die("Couldn't open $file");
-    seek(FILE, 0, 0);
-    print FILE $with x $bytes || die("Couldn't overwrite $file");
-    close(FILE);
+    open(my $fh, '+<', $file) || die("Couldn't open $file: $!");
+    seek($fh, 0, 0);
+    for(; $bytes; $bytes--) {
+      print $fh $with || die("Couldn't overwrite $file: $!");
+    }
+    close($fh) || die("Couldn't close $file: $!");
 }
 
 sub _unlink {
@@ -118,6 +120,11 @@ operating system, not in this module.
 
 I like to know who's using my code.  All comments, including constructive
 criticism, are welcome.  Please email me.
+
+=head1 THANKS TO
+
+Daniel Muey, for reporting some bugs and misfeatures,
+see L<http://rt.cpan.org/Public/Bug/Display.html?id=50067>.
 
 =head1 SEE ALSO
 
