@@ -8,3 +8,4 @@ GPL2.txt
 CHANGES
 t/pod-coverage.t
 t/pod.t
+MANIFEST.SKIP
