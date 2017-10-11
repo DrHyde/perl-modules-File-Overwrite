@@ -107,7 +107,7 @@ sub _unlink {
 
 =head1 BUGS
 
-None known.  Please report any that you find using L<http://rt.cpan.org/>.
+Bug reports should be made on Github or by email.
 
 You should be aware, however, that the tests are only rudimentary.  There
 is no portable way of determining whether a file's data really is overwritten
